@@ -3,7 +3,6 @@ var port = process.argv[2];
 var express = require('express');
 var stylus = require('stylus');
 var nib = require('nib');
-var mongoose = require('mongoose');
 
 var app = express();
 
@@ -23,6 +22,8 @@ function getIndexPage(req, res) {
   res.render('index', { title : 'Home' } );
 }
 
-app.get('/', getIndexPage(req, res));
+app.get('/', function getRoot(req, res) {
+  getIndexPage(req, res);
+});
 
 app.listen(port);

@@ -1,3 +1,5 @@
+var port = process.argv[2];
+
 var express = require('express')
 	, stylus = require('stylus')
 	, nib = require('nib');
@@ -17,7 +19,7 @@ app.use(stylus.middleware( { src: __dirname + '/public' , compile: compile } ));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-	res.end('Server works!')
+	res.render('index', { title : 'Home' } );
 });
 
-app.listen(80);
+app.listen(port);

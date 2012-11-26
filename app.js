@@ -4,6 +4,8 @@ var express = require('express');
 var stylus = require('stylus');
 var nib = require('nib');
 
+var postService = require('./lib/PostService');
+
 var app = express();
 
 function compile(str, path) {

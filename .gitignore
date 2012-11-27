@@ -2,6 +2,7 @@
 ## Custom
 #################
 *.log
+node_modules
 
 #################
 ## Eclipse

@@ -1,6 +1,6 @@
 NodeBlog
 --------
 
-"!https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":https://travis-ci.org/nicklanng/NodeBlog
+"!https://travis-ci.org/nicklanng/NodeBlog.png
 
 A blog engine written for Node JS.

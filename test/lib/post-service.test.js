@@ -27,7 +27,7 @@ describe('PostService', function() {
 
   describe('#constructor', function() {
     it('should initialize the db connection', function() {
-      mongoose.createConnection.should.have.been.calledWith('localhost', 'nodeBlog');
+      mongoose.createConnection.should.have.been.calledWith('127.0.0.1', 'nodeBlog');
     });
 
     describe('on db connection', function() {

@@ -12,7 +12,9 @@
   },
   "devDependencies": {
     "sinon": "1.5.2",
-    "mocha": "1.7.1"
+    "mocha": "1.7.1",
+    "chai": "1.4.0",
+    "sinon-chai": "2.2.0"
   },
   "scripts": {
     "test": "mocha test/*"

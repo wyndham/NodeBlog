@@ -12,15 +12,19 @@ sinon.spy(mongoose, 'Schema');
 var dependencies = [];
 dependencies['mongoose'] = mongoose;
 
-var PostService = require('../../lib/post-service');
 var target;
 
 describe('PostService', function() {
 
   beforeEach(function (done) {
-    target = new PostService(dependencies);
+    target = require('../../lib/post-service');
+    target.initialize(dependencies, function(err) {
+      done();
+    });
+  });
 
-    target.db.once('open', function() {
+  afterEach(function(done) {
+    target.removeAll(function(err) {
       done();
     });
   });
@@ -37,33 +41,40 @@ describe('PostService', function() {
         mongoose.Schema.should.have.been.calledWith({
           title: String
         });
-        //dbMock.model.should.have.been.calledWith('Post', postSchema);
-        //target.Posts.should.equal(postModel);
 
         done();
       });
     });
   });
 
-  describe('#getPosts', function() {
-    var result;
+  describe('adding and removing posts', function() {
 
-    beforeEach(function(done) {
-      target.getPosts(function(docs) {
-        result = docs;
 
-        done();
+    describe('#addPost', function() {
+      it ('should add the post to the collection', function(done) {
+        var newPost = { title: "newTitle" };
+
+        target.addPost(newPost, function(err) {
+          target.getPosts(function(err, result) {
+            result.length.should.equal(1);
+            done();
+          });
+        });
       });
     });
 
-    afterEach(function(done) {
-      target.posts.remove(function(err) {
-        done();
+    describe('#getPosts', function() {
+      it('should return all posts in the db', function(done) {
+        var newPost = { title: "newTitle" };
+
+        target.addPost(newPost, function(err) {
+          target.getPosts(function(err, result) {
+            result.should.exist;
+            done();
+          });
+        });
       });
     });
 
-    it('should return all posts in the db', function() {
-      result.should.exist;
-    })
-  })
-})
+  });
+});

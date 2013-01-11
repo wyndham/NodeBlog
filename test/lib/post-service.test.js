@@ -39,7 +39,10 @@ describe('PostService', function() {
       it('should create the post model', function(done) {
 
         mongoose.Schema.should.have.been.calledWith({
-          title: String
+          title: String,
+          date: Date,
+          author: String,
+          content: String
         });
 
         done();

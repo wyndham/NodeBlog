@@ -1,5 +1,5 @@
 var port = process.argv[2];
-
+require('node-codein');
 
 var dependencies = [];
 dependencies['mongoose'] = require('mongoose');

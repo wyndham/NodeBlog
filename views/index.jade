@@ -1,22 +1,20 @@
 extend _layout
+
+block login
+  if (typeof(user.username) === 'undefined')
+    span Welcome Guest!
+    .username Username:
+      input
+    .password Password: 
+      input
+    button Login
+  else
+    span Welcome #{user.username}
+    button Logout
+
 block content
-  p
-    | Vivamus hendrerit arcu sed erat molestie
-    | vehicula. Sed auctor neque eu tellus
-    | rhoncus ut eleifend nibh porttitor. Ut in.
-  p
-    | Donec congue lacinia dui, a porttitor
-    | lectus condimentum laoreet. Nunc eu
-    | ullamcorper orci. Quisque eget odio ac
-    | lectus vestibulum faucibus eget in metus.
-    | In pellentesque faucibus vestibulum. Nulla
-    | at nulla justo, eget luctus tortor.
-block sidebar
-  .widget
-    h1 Widget
-    p
-      | Sed auctor neque eu tellus rhoncus ut
-      | eleifend nibh porttitor. Ut in nulla enim.
-    p
-      | Vivamus hendrerit arcu sed erat molestie
-      | vehicula.
+  for post in posts
+    div(class="post")
+      .title #{post.title}
+      .details Posted on #{post.date} by #{post.author}
+      .content #{post.content}

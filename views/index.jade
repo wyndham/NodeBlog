@@ -13,8 +13,10 @@ block login
     button Logout
 
 block content
-  for post in posts
-    div(class="post")
-      .title #{post.title}
-      .details Posted on #{post.date} by #{post.author}
-      .content #{post.content}
+  section#posts
+    each post in posts
+      article(class="post")
+        header
+          .title #{post.title}
+          .details Posted on #{post.date} by #{post.author}
+        p #{post.content}

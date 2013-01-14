@@ -4,12 +4,8 @@ html
     title #{title} - Rinseworld.com
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    header
-      h1 Rinseworld.com
-    .container
-      .login
-        block login
-      .main-content
-        block content
-    footer
-      p Running on node with Express, Jade and Stylus
+    header Rinseworld.com
+    aside.login
+      block login 
+    block content
+    footer Running on node with Express, Jade and Stylus

@@ -55,10 +55,10 @@ describe('PostService', function() {
 
     describe('#addPost', function() {
       it ('should add the post to the collection', function(done) {
-        var newPost = { title: "newTitle" };
+        var newPost = createTestPost('New Post', 400);
 
         target.addPost(newPost, function(err) {
-          target.getPosts(function(err, result) {
+          target.getPostsOrderedByDateDesc(function(err, result) {
             result.length.should.equal(1);
             done();
           });
@@ -68,12 +68,18 @@ describe('PostService', function() {
 
     describe('#getPosts', function() {
       it('should return all posts in the db', function(done) {
-        var newPost = { title: "newTitle" };
+        var oldPost = createTestPost('Old Post', 200000);
+        var newPost = createTestPost('New Post', 400000);
 
-        target.addPost(newPost, function(err) {
-          target.getPosts(function(err, result) {
-            result.should.exist;
-            done();
+        target.addPost(oldPost, function(err) {
+          target.addPost(newPost, function(err) {
+            target.getPostsOrderedByDateDesc(function(err, result) {
+
+              result[0].title.should.equal(newPost.title);
+              result[1].title.should.equal(oldPost.title);
+              done();
+              
+            });
           });
         });
       });
@@ -81,3 +87,12 @@ describe('PostService', function() {
 
   });
 });
+
+var createTestPost = function(title, date) {
+  return {
+    title: title,
+    date: new Date(date),
+    author: "rinse",
+    content: "This is content for post " + title
+  }
+}

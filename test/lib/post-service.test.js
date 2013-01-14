@@ -14,6 +14,15 @@ dependencies['mongoose'] = mongoose;
 
 var target;
 
+var createTestPost = function(title, date) {
+  return {
+    title: title,
+    date: new Date(date),
+    author: "rinse",
+    content: "This is content for post " + title
+  };
+}
+
 describe('PostService', function() {
 
   beforeEach(function (done) {
@@ -35,30 +44,25 @@ describe('PostService', function() {
     });
 
     describe('on db connection', function() {
-
       it('should create the post model', function(done) {
-
         mongoose.Schema.should.have.been.calledWith({
           title: String,
           date: Date,
           author: String,
           content: String
         });
-
         done();
       });
     });
   });
 
   describe('adding and removing posts', function() {
-
-
+    
     describe('#addPost', function() {
       it ('should add the post to the collection', function(done) {
         var newPost = createTestPost('New Post', 400);
-
         target.addPost(newPost, function(err) {
-          target.getPostsOrderedByDateDesc(function(err, result) {
+          target.getPostsOrderedByDateDesc(5, function(err, result) {
             result.length.should.equal(1);
             done();
           });
@@ -66,33 +70,35 @@ describe('PostService', function() {
       });
     });
 
-    describe('#getPosts', function() {
-      it('should return all posts in the db', function(done) {
-        var oldPost = createTestPost('Old Post', 200000);
-        var newPost = createTestPost('New Post', 400000);
+    describe('#getPostsOrderedByDateDesc', function() {
+      var oldPost = createTestPost('Old Post', 200000);
+      var newPost = createTestPost('New Post', 400000);
 
+      beforeEach(function (done) {
         target.addPost(oldPost, function(err) {
           target.addPost(newPost, function(err) {
-            target.getPostsOrderedByDateDesc(function(err, result) {
-
-              result[0].title.should.equal(newPost.title);
-              result[1].title.should.equal(oldPost.title);
-              done();
-              
-            });
+            done();
           });
+        });
+      });
+
+      it('should return the posts in reverse chronological order', function(done) {
+        target.getPostsOrderedByDateDesc(2, function(err, result) {
+          result[0].title.should.equal(newPost.title);
+          result[1].title.should.equal(oldPost.title);
+          done();
+        });
+      });
+
+      it('should return only the number of posts requested', function(done) {
+        var numberOfPosts = 1;
+
+        target.getPostsOrderedByDateDesc(numberOfPosts, function(err, result) {
+          result.length.should.equal(numberOfPosts);
+          done();
         });
       });
     });
 
   });
 });
-
-var createTestPost = function(title, date) {
-  return {
-    title: title,
-    date: new Date(date),
-    author: "rinse",
-    content: "This is content for post " + title
-  }
-}

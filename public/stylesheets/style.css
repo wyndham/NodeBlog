@@ -1,0 +1,60 @@
+@import url("http://fonts.googleapis.com/css?family=Electrolize");
+html,
+body {
+  font-family: Electrolize;
+  background-color: #000;
+  color: #74a0ef;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  text-shadow: 0 0 10px #6495ed;
+}
+html footer,
+body footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+a {
+  color: #fc6;
+  text-shadow: 0 0 4px #b29252;
+}
+.login {
+  float: right;
+  margin: 10px;
+}
+.login * {
+  display: inline;
+  margin-left: 5px;
+}
+.login button,
+.login input {
+  padding: 2px 5px;
+  background: #000;
+  background-color: #000;
+  color: #fc6;
+  border: 1px solid #74a0ef;
+  font-family: Electrolize;
+}
+.post header .title {
+  font-size: 2em;
+}
+.post header .details {
+  color: #a7c3f4;
+}
+.post p {
+  margin-left: 0px;
+}
+#posts {
+  margin: 20px 20px 20px 20px;
+}
+.websiteName {
+  font-size: 4em;
+  color: #a7c3f4;
+}
+img {
+  -webkit-filter: sepia(80%) hue-rotate(170deg) contrast(175%) brightness(-15%);
+  border: 1px solid #000;
+  -webkit-box-shadow: 0 0 2px 2px #6495ed;
+  margin: 5px;
+}

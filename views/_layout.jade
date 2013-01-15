@@ -4,8 +4,10 @@ html
     title #{title} - Rinseworld.com
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    header Rinseworld.com
     aside.login
       block login 
+    header.websiteName Rinseworld.com
     block content
-    footer Running on node with Express, Jade and Stylus
+    footer Running on node with Express, Jade and Stylus. This blog engine is available for free on  
+      a(href='https://github.com/nicklanng/NodeBlog') Github
+      . All other content is © Nick Lanng 2013.

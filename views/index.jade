@@ -6,7 +6,7 @@ block login
     .username Username:
       input
     .password Password: 
-      input
+      input(type='password')
     button Login
   else
     span Welcome #{user.username}
@@ -17,6 +17,9 @@ block content
     each post in posts
       article(class="post")
         header
-          .title #{post.title}
-          .details Posted on #{post.date} by #{post.author}
+          a.title(href='#') #{post.title}
+          .details Posted on #{post.date.toUTCString()} by 
+            a(href='#') #{post.author}
         p #{post.content}
+
+  img(src='http://www.tilt-rotor.com/2006/200606_China/20060615_SubwayTrain.JPG',width='30%',height='30%')

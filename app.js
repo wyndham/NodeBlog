@@ -5,6 +5,7 @@ dependencies['mongoose'] = require('mongoose');
 dependencies['express'] = require('express');
 dependencies['stylus'] = require('stylus');
 dependencies['nib'] = require('nib');
+dependencies['markdown'] = require('markdown');
 
 var postService = require('./lib/post-service.js')
 postService.initialize(dependencies, function(err) {

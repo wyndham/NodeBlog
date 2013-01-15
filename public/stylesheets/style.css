@@ -4,16 +4,12 @@ body {
   font-family: Electrolize;
   background-color: #000;
   color: #74a0ef;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
+  font-size: 12px;
   text-shadow: 0 0 10px #6495ed;
 }
 html footer,
 body footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  text-align: right;
 }
 a {
   color: #fc6;
@@ -22,9 +18,9 @@ a {
 .login {
   float: right;
   margin: 10px;
+  display: inline;
 }
 .login * {
-  display: inline;
   margin-left: 5px;
 }
 .login button,
@@ -36,8 +32,11 @@ a {
   border: 1px solid #74a0ef;
   font-family: Electrolize;
 }
+.login button {
+  float: right;
+}
 .post header .title {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 .post header .details {
   color: #a7c3f4;
@@ -49,7 +48,7 @@ a {
   margin: 20px 20px 20px 20px;
 }
 .websiteName {
-  font-size: 4em;
+  font-size: 3em;
   color: #a7c3f4;
 }
 img {

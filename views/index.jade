@@ -20,6 +20,6 @@ block content
           a.title(href='#') #{post.title}
           .details Posted on #{post.date.toUTCString()} by 
             a(href='#') #{post.author}
-        p #{post.content}
+        != md(post.content)
 
-  img(src='http://www.tilt-rotor.com/2006/200606_China/20060615_SubwayTrain.JPG',width='30%',height='30%')
+  img(src='http://www.tilt-rotor.com/2006/200606_China/20060615_SubwayTrain.JPG')

@@ -5,8 +5,10 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     aside.login
-      block login 
-    header.websiteName Rinseworld.com
+      block login
+    header#siteHeader
+      .websiteName #{siteName}
+      .websiteTagline #{siteTagline}
     block content
     footer Running on node with Express, Jade and Stylus.<br />This blog engine is available for free on  
       a(href='https://github.com/nicklanng/NodeBlog') Github

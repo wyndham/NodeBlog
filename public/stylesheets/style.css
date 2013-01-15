@@ -4,6 +4,8 @@ body {
   font-family: Electrolize;
   background-color: #000;
   color: #74a0ef;
+  padding: 0;
+  margin: 0;
   font-size: 12px;
   text-shadow: 0 0 10px #6495ed;
 }
@@ -15,10 +17,16 @@ a {
   color: #fc6;
   text-shadow: 0 0 4px #b29252;
 }
+img {
+  -webkit-filter: sepia(80%) hue-rotate(170deg) contrast(175%) brightness(-15%);
+  border: 1px solid #000;
+  -webkit-box-shadow: 0 0 2px 2px #6495ed;
+  margin: 5px;
+}
 .login {
   float: right;
-  margin: 10px;
   display: inline;
+  padding: 5px;
 }
 .login * {
   margin-left: 5px;
@@ -41,19 +49,31 @@ a {
 .post header .details {
   color: #a7c3f4;
 }
-.post p {
-  margin-left: 0px;
+.websiteName:before {
+  content: ">";
+  color: #74a0ef;
+}
+.websiteName {
+  font-size: 6em;
+  color: #a7c3f4;
+  text-transform: uppercase;
+}
+.websiteTagline:before {
+  content: ". // ";
+  color: #a7c3f4;
+}
+.websiteTagline {
+  font-size: 1.5em;
+  margin-left: 5px;
+  margin-top: -5px;
+}
+.websiteTagline:after {
+  content: " ..";
+  color: #a7c3f4;
 }
 #posts {
   margin: 20px 20px 20px 20px;
 }
-.websiteName {
-  font-size: 3em;
-  color: #a7c3f4;
-}
-img {
-  -webkit-filter: sepia(80%) hue-rotate(170deg) contrast(175%) brightness(-15%);
-  border: 1px solid #000;
-  -webkit-box-shadow: 0 0 2px 2px #6495ed;
-  margin: 5px;
+#siteHeader {
+  border-bottom: 1px solid #74a0ef;
 }

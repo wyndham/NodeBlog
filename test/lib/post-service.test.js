@@ -49,7 +49,8 @@ describe('PostService', function() {
           title: String,
           date: Date,
           author: String,
-          content: String
+          content: String,
+          category: String
         });
         done();
       });

@@ -6,12 +6,20 @@ body {
   color: #74a0ef;
   padding: 0;
   margin: 0;
-  font-size: 12px;
+  font-size: 13px;
   text-shadow: 0 0 10px #6495ed;
 }
-html footer,
-body footer {
+body>header {
+  border-bottom: 1px solid #74a0ef;
+}
+body>footer {
   text-align: right;
+  clear: left;
+  border-top: 1px solid #74a0ef;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 a {
   color: #fc6;
@@ -43,11 +51,25 @@ img {
 .login button {
   float: right;
 }
+.morelink {
+  float: right;
+}
+.post {
+  width: 25%;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  float: left;
+}
 .post header .title {
   font-size: 1.5em;
 }
 .post header .details {
   color: #a7c3f4;
+}
+.thumbnail {
+  float: left;
+  margin: 20px 10px -2px 2px;
 }
 .websiteName:before {
   content: ">";
@@ -72,8 +94,12 @@ img {
   color: #a7c3f4;
 }
 #posts {
-  margin: 20px 20px 20px 20px;
+  position: absolute;
+  bottom: 3em;
+  top: 9em;
+  overflow: auto;
 }
-#siteHeader {
-  border-bottom: 1px solid #74a0ef;
+#tags {
+  text-align: left;
+  color: #a7c3f4;
 }

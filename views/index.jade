@@ -19,7 +19,11 @@ block content
         header
           a.title(href='#') #{post.title}
           .details Posted on #{post.date.toUTCString()} by 
-            a(href='#') #{post.author}
+            a(href='#') #{post.author} 
+            | in
+            a(href='#') #{post.category}
+        img(src='http://mybroadband.co.za/news/wp-content/uploads/2012/07/hacker-one-100x75.jpg').thumbnail
         != md(post.content)
-
-  img(src='http://www.tilt-rotor.com/2006/200606_China/20060615_SubwayTrain.JPG')
+        footer
+          #tags Tags: 
+          a(href='#').morelink Read more...

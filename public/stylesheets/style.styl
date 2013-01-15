@@ -6,11 +6,20 @@ html, body
   color #74A0EF
   padding 0;
   margin 0;
-  font-size 12px
+  font-size 13px
   text-shadow 0 0 10px #6495ED
 
-  footer
-    text-align right
+body>header
+  border-bottom 1px solid #74A0EF
+
+body>footer
+  text-align right
+  clear left
+  border-top 1px solid #74A0EF
+  position absolute
+  bottom 0
+  left 0
+  right 0
 
 a
   color #FFCC66
@@ -40,12 +49,25 @@ img
   button
     float right
 
+.morelink
+  float right
+
 .post
+  width 25%
+  display inline-block
+  margin 5px
+  padding 10px
+  float left
+
   header
     .title
       font-size 1.5em
     .details
       color #A7C3F4
+
+.thumbnail
+  float left
+  margin 20px 10px -2px 2px 
 
 .websiteName:before
   content ">"
@@ -70,7 +92,11 @@ img
   color #A7C3F4
 
 #posts
-  margin 20px 20px 20px 20px
+  position absolute
+  bottom 3em
+  top 9em
+  overflow:auto;
 
-#siteHeader
-  border-bottom 1px solid #74A0EF
+#tags
+  text-align left
+  color #A7C3F4

@@ -1,17 +1,5 @@
 extend _layout
 
-block login
-  if (typeof(user.username) === 'undefined')
-    span Welcome Guest!
-    .username Username:
-      input
-    .password Password: 
-      input(type='password')
-    button Login
-  else
-    span Welcome #{user.username}
-    button Logout
-
 block content
   section#posts
     each post in posts

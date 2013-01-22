@@ -5,11 +5,14 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     aside.login
-      block login
+      include _loginbox.jade
+
     header#siteHeader
       .websiteName #{siteName}
       .websiteTagline #{siteTagline}
+
     block content
-    footer Running on node with Express, Jade and Stylus.<br />This blog engine is available for free on  
+
+    footer Running on node with Express, Jade and Stylus.<br /> This blog engine is available open source on  
       a(href='https://github.com/nicklanng/NodeBlog') Github
       . All other content is © Nick Lanng 2013.

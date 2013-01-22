@@ -6,6 +6,27 @@ dependencies['express'] = require('express');
 dependencies['stylus'] = require('stylus');
 dependencies['nib'] = require('nib');
 dependencies['markdown'] = require('markdown');
+dependencies['passport'] = require('passport')
+dependencies['passport-local'] = require('passport-local');
+
+var initHttpServer = function() {
+  var HttpServer = require('./lib/http-server');
+  var httpServer = HttpServer(dependencies);
+  httpServer.run(port);
+}
+
+var initUserService = function() {
+  var userService = require('./lib/user-service.js')
+  userService.initialize(dependencies, function(err) {
+    if (err) {
+      console.log(err);
+      process.exit(1);
+    }
+    dependencies['user-service'] = userService;
+
+    initHttpServer();
+  });
+}
 
 var postService = require('./lib/post-service.js')
 postService.initialize(dependencies, function(err) {
@@ -15,9 +36,7 @@ postService.initialize(dependencies, function(err) {
   }
   dependencies['post-service'] = postService;
 
-  var HttpServer = require('./lib/http-server');
-  var httpServer = HttpServer(dependencies);
-  httpServer.run(port);
+  initUserService();
 });
 
 

@@ -17,7 +17,7 @@ body>footer {
   clear: left;
   border-top: 1px solid #74a0ef;
   position: absolute;
-  bottom: 0;
+  bottom: 0.5em;
   left: 0;
   right: 0;
 }
@@ -50,6 +50,13 @@ img {
 }
 .login button {
   float: right;
+}
+.login-message {
+  color: #f00;
+  text-shadow: 0 0 10px #e00;
+  float: left;
+  margin-left: 4px;
+  margin-top: 0.5em;
 }
 .morelink {
   float: right;
@@ -95,7 +102,7 @@ img {
 }
 #posts {
   position: absolute;
-  bottom: 3em;
+  bottom: 3.5em;
   top: 9em;
   overflow: auto;
 }

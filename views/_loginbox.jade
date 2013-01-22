@@ -1,0 +1,13 @@
+if (typeof(user) === 'undefined')
+    form(method='post', action='/login')
+      div Welcome Guest!
+      .username Username:
+        input(name='username')
+      .password Password: 
+        input(type='password', name='password')
+      .login-message #{loginMessage}
+      button Login
+  else
+    form(method='post', action='/logout')
+      span Welcome #{user.username}!
+      button Logout

@@ -7,8 +7,6 @@ chai.use(sinonChai);
 var events = require('events');
 
 var mongoose = require('mongoose');
-sinon.spy(mongoose, 'createConnection');
-sinon.spy(mongoose, 'Schema');
 var dependencies = [];
 dependencies['mongoose'] = mongoose;
 
@@ -26,6 +24,10 @@ var createTestPost = function(title, date) {
 describe('PostService', function() {
 
   beforeEach(function (done) {
+
+    sinon.spy(mongoose, 'createConnection');
+    sinon.spy(mongoose, 'Schema');
+
     target = require('../../lib/post-service');
     target.initialize(dependencies, function(err) {
       done();
@@ -33,6 +35,10 @@ describe('PostService', function() {
   });
 
   afterEach(function(done) {
+
+    mongoose.createConnection.restore();
+    mongoose.Schema.restore();
+
     target.removeAll(function(err) {
       done();
     });

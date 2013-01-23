@@ -8,6 +8,7 @@ dependencies['nib'] = require('nib');
 dependencies['markdown'] = require('markdown');
 dependencies['passport'] = require('passport')
 dependencies['passport-local'] = require('passport-local');
+dependencies['connect-flash'] = require('connect-flash');
 
 var initHttpServer = function() {
   var HttpServer = require('./lib/http-server');

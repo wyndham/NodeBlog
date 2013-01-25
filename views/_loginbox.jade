@@ -9,5 +9,5 @@ if (typeof(user) === 'undefined')
       button Login
   else
     form(method='post', action='/logout')
-      span Welcome #{user.username}!
+      span Welcome #{user.displayName}!
       button Logout

@@ -44,7 +44,8 @@ describe('UserService', function() {
       it('should create the user model', function(done) {
         mongoose.Schema.should.have.been.calledWith({
           username: String,
-          password: String
+          password: String,
+          displayName: String
         });
         done();
       });
@@ -55,12 +56,14 @@ describe('UserService', function() {
     it('should add a user to the database', function(done) {
       var testUsername = 'testUsername';
       var testPassword = 'testPassword';
-      var user = {username: testUsername, password: testPassword};
+      var testDisplayName = 'testDisplayName';
+      var user = {username: testUsername, password: testPassword, displayName: testDisplayName};
 
       target.addUser(user, function(err) {
         target.getByUsername(testUsername, function(err, user) {
           user.username.should.equal(testUsername);
           user.password.should.equal(testPassword);
+          user.displayName.should.equal(testDisplayName);
 
           done();
         })
